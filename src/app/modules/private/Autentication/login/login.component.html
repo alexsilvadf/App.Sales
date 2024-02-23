@@ -8,14 +8,14 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 </head>
-<body class="sign-in-js">
+<body class="sign-in-js" [formGroup]="form">
     <div class="container">        
         <div class="content second-content">
             <div class="first-column">
                 <h2 class="title title-primary">Olá, Bem Vindo!</h2>
                 <p class="description description-primary">Faça login para acesso</p>
                 <p class="description description-primary">exclusivo de ítens</p>
-                <button id="signup" class="btn btn-primary" (click)="cadastrar()">Cadastre-se</button>
+                <button id="signup" class="btn btn-primary" routerLink="/account">Cadastre-se</button>
             </div>
             <div class="second-column">
                 <h2 class="title title-second">Faça Login no Site</h2>
@@ -43,16 +43,16 @@
                 
                     <label class="label-input" for="">
                         <i class="far fa-envelope icon-modify"></i>
-                        <input id="email" type="email" placeholder="Email">
+                        <input id="email" type="email" formControlName="email" placeholder="Email">
                     </label>
                 
                     <label class="label-input" for="">
                         <i class="fas fa-lock icon-modify"></i>
-                        <input id="password" type="password" placeholder="Password">
+                        <input id="password" type="password" formControlName="password" placeholder="Password">
                     </label>
                 
                     <a class="password" href="#">esqueceu a senha?</a>
-                    <button id="signin" class="btn btn-second" (click)="login($event)">Entrar</button>
+                    <button id="signin" class="btn btn-second" (click)="login()">Entrar</button>                  
                 </form>
             </div><!-- second column -->
         </div><!-- second-content -->

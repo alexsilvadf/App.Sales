@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,14 +8,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  
-  constructor(private router: Router) {}
+
+  form = this.fb.group({
+    email: this.fb.control<string | null>(null),
+    password: this.fb.control<string | null>(null),
+  });
+
+  constructor(private router: Router, private fb: FormBuilder) {}
 
   ngOnInit(): void {}
 
-  login($event: any) {}
-
-  cadastrar() {
-    this.router.navigate(['/account']);
-  }
+  login() {
+    if (true) {
+      console.log('email' + this.form.controls.email.value);
+      console.log('senha' + this.form.controls.password.value);
+    }
+  }  
 }
